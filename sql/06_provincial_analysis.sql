@@ -5,7 +5,7 @@
 -- Objetivo:
 -- Identificar las provincias con mayor producción,
 -- superficie y rendimiento de soja durante el período
--- común 2000-2017.
+-- común 2000-2016.
 
 
 -- 1. Producción total por provincia

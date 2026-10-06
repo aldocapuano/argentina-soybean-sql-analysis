@@ -4,7 +4,7 @@
 
 -- Objetivo:
 -- Identificar los departamentos con mayor producción
--- y rendimiento de soja durante el período 2000-2017.
+-- y rendimiento de soja durante el período 2000-2016.
 
 
 -- Top 15 departamentos por producción
@@ -61,23 +61,32 @@ LIMIT 15;
 -- con mayor produccion sobre el total nacional
 
 
-SELECT
-SUM(produccion_tm)
-FROM soja_analytics
-WHERE anio BETWEEN 2000 AND 2016
-) , 2
-) AS participacion_top10
+-- Participación de los 10 departamentos
+-- con mayor producción sobre el total nacional
 
-FROM(
-SELECT 
-provincia_nombre,
-departamento_nombre,
-SUM(produccion_tm) AS produccion_total
-FROM soja_analytics
-WHERE anio BETWEEN 2000 AND 2016
-GROUP BY provincia_nombre, departamento_nombre
-ORDER BY produccion_total DESC 
-LIMIT 10
+SELECT
+    ROUND(
+        SUM(produccion_total)::NUMERIC * 100
+        /
+        (
+            SELECT SUM(produccion_tm)
+            FROM soja_analytics
+            WHERE anio BETWEEN 2000 AND 2016
+        ),
+        2
+    ) AS participacion_top10
+FROM (
+    SELECT
+        provincia_nombre,
+        departamento_nombre,
+        SUM(produccion_tm) AS produccion_total
+    FROM soja_analytics
+    WHERE anio BETWEEN 2000 AND 2016
+    GROUP BY
+        provincia_nombre,
+        departamento_nombre
+    ORDER BY produccion_total DESC
+    LIMIT 10
 ) AS top10;
 
 
