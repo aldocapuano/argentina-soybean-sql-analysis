@@ -363,7 +363,7 @@ La primera página permite visualizar:
 - Participación provincial
 - Filtros por año y tipo de soja
 
-![Resumen Ejecutivo](images/resumen_ejecutivo.png)
+![Resumen Ejecutivo](images/resuem_ejecutivo.png)
 
 ---
 
