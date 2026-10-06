@@ -363,6 +363,8 @@ La primera página permite visualizar:
 - Participación provincial
 - Filtros por año y tipo de soja
 
+![Resumen Ejecutivo](images/resumen_ejecutivo.png)
+
 ---
 
 ### Análisis Regional
@@ -375,6 +377,8 @@ La segunda página permite analizar:
 - Rendimiento por tipo de soja
 - Filtro por provincia
 - Tabla detallada por provincia y departamento
+
+![Análisis Regional](images/analisis_regional.png)
 
 ### Medidas DAX
 
